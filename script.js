@@ -1,37 +1,43 @@
- //Task 1: DOM SELECTION
-
-// By Tag Name
-let headings = document.getElementsByTagName("h1");
-console.log(headings);
-console.log(headings[0].textContent);
-headings[0].innerHTML = "This is <em>updated</em> heading";
+//Task 1: DOM SELECTION
 
 // By ID
-let introParagraph = document.getElementById("intro");
-console.log(introParagraph.textContent);
-introParagraph.innerHTML =
-  "This is a <strong>updated</strong> introductory paragraph.";
+let heading = document.getElementById("main-heading");
+console.log("By ID:", heading);
 
 // By Class Name
 let titles = document.getElementsByClassName("title");
-console.log(titles);
+console.log("By Class Name:", titles);
 
-// querySelector
-let additionalInfo = document.querySelector("#additional-info");
-console.log(additionalInfo.textContent);
-additionalInfo.innerHTML =
-  "This is <u>updated</u> additional information paragraph.";
+// By Tag Name
+let paragraphs = document.getElementsByTagName("p");
+console.log("By Tag Name:", paragraphs);
 
-// querySelectorAll
-let allTitles = document.querySelectorAll(".title");
-console.log(allTitles);
+// querySelector (first matching element)
+let firstParagraph = document.querySelector("p");
+console.log("querySelector:", firstParagraph);
+
+// querySelectorAll (all matching elements)
+let allListItems = document.querySelectorAll("#my-list li");
+console.log("querySelectorAll:", allListItems);
+
 
    //Task 2: CONTENT MANIPULATION
 
+// Change heading text
+heading.innerText = "Heading updated using innerText";
+console.log("innerText:", heading.innerText);
+
+heading.innerHTML = "Heading updated using <em>innerHTML</em>";
+console.log("innerHTML:", heading.innerHTML);
+
+heading.textContent = "Heading updated using textContent";
+console.log("textContent:", heading.textContent);
+
+// Button click to update paragraph
+let introParagraph = document.getElementById("intro");
 let updateBtn = document.getElementById("update-btn");
 
 updateBtn.addEventListener("click", function () {
-  introParagraph.innerHTML +=
-    " <mark>Text added after button click.</mark>";
+  introParagraph.innerHTML += " <mark>Text added after button click.</mark>";
   console.log("Paragraph length:", introParagraph.textContent.length);
 });
